@@ -20,3 +20,5 @@ server = Flask(__name__)
 def start(message):
     bot.reply_to(message, 'Cheer, ' + message.from_user.first_name)
     bot.send_message(message.chat.id, message.from_user.id)
+    
+    server.run(host="0.0.0.0", port=os.environ.get('PORT', 5000))  
