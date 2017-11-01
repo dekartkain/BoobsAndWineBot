@@ -21,4 +21,15 @@ def start(message):
     bot.reply_to(message, 'Cheer, ' + message.from_user.first_name)
     bot.send_message(message.chat.id, message.from_user.id)
     
-    server.run(host="0.0.0.0", port=os.environ.get('PORT', 5000))  
+@server.route(SECRET, methods=['POST'])
+def get_message():
+    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+    return "POST", 200
+       
+@server.route("/")
+def web_hook():
+    bot.remove_webhook()
+    bot.set_webhook(url=URL+SECRET)
+    return "CONNECTED", 200
+
+server.run(host="0.0.0.0", port=os.environ.get('PORT', 5000))  
