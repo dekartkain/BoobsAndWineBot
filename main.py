@@ -16,13 +16,15 @@ SECRET = '/' + TOKEN
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
 
+#приветствие, id
 @bot.message_handler(commands=['start'])
 def start(message):
     bot.reply_to(message, 'Hi, ' + message.from_user.first_name)
-    bot.send_message(message.chat.id, message.from_user.id)
-    
+    bot.send_message(message.chat.id, 'Hi, ' + message.from_user.id)
+
+#повторяем сообщение
 @bot.message_handler(content_types=["text"])
-def repeat_all_messages(message): # Название функции не играет никакой роли, в принципе
+def repeat_all_messages(message):
     bot.send_message(message.chat.id, message.text)
 
     
