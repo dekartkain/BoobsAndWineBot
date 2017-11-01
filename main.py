@@ -2,9 +2,9 @@ import os
 
 from flask import Flask, request
 
-import dices
-import rm
-import telebot
+#import dices
+#import rm
+#import telebot
 from random import randint
 
 TOKEN = os.environ['PP_BOT_TOKEN']
