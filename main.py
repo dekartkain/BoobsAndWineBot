@@ -20,7 +20,7 @@ server = Flask(__name__)
 @bot.message_handler(commands=['start'])
 def start(message):
 #    bot.reply_to(message, 'Hi, ' + message.from_user.first_name)
-    bot.send_message(message.chat.id, 'Hi, ' + message.from_user.first_name + ' test')
+    bot.send_message(message.chat.id, 'Hi, ' + message.from_user.first_name + message.from_user.id)
     bot.send_message(message.chat.id, message.from_user.id)
 
 #повторяем сообщение
