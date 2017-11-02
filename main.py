@@ -33,7 +33,7 @@ def answer_by_pass(message):
 		bot.send_message(message.chat.id, "может быть, когда-нибудь")
 	elif message.text == 'сиськи!':
 		#bot.send_photo(message.chat.id, photo='ftp://109.195.87.20:8083/1.jpg')
-		bot.send_photo(message.chat.id, photo='http://89.208.156.201/thumb/420x420/img/2017/11/nastya/20171102-np-fix.jpg')
+		bot.send_photo(message.chat.id, photo='http://boobsandwinebot.freedynamicdns.net/1.jpg')
 	elif message.text == 'тест!':
 		bot.send_photo(message.chat.id, photo='http://spletnik.ru/thumb/420x420/img/2017/11/nastya/20171102-np-fix.jpg')
 	elif message.text == 'вино!':
