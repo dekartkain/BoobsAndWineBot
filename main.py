@@ -32,7 +32,7 @@ def synboobslst(message):
 def winemsg(message):
 	if message.text == 'вино' or 'Вино'or 'винцо'or 'Винцо':
 		bot.send_message(message.chat.id, 'Я больше по сиськам...')
-	else
+	else:
 		exmp = message.text
 		exmp_lower = exmp.lower() #сделать все символы строчными
 		synboobslist = syn_boobs.syn_boobs_lib #подтягиваем словарь синонимов
