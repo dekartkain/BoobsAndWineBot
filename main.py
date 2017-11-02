@@ -35,8 +35,7 @@ def answer_by_pass(message):
 		bot.send_message(message.chat.id, "скоро тут будут сиськи")
 	elif message.text == 'вино':
 		bot.send_message(message.chat.id, "может быть, когда-нибудь")
-	else:
-		bot.send_message(message.chat.id, "ok")
+		return False
 		
 @bot.message_handler(commands=['opop'])
 def opop(message):
