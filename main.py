@@ -39,14 +39,13 @@ def sendPic(message):
 #тестим картинку
 @bot.message_handler(commands=['pic2'])
 def sendPic(message):
-	photo2 = open('http://i1.perdos.me/files/video/2017/02/P7357/P7357_perdos.ru_18.jpg', 'rb')
+	photo2 = open('http://i1.perdos.me/files/video/2017/02/P7357/P7357_perdos.ru_18.jpg')
 	bot.sendPhoto(message.chat.id, photo2)
 
 #тестим картинку
 @bot.message_handler(commands=['pic3'])
 def sendPic(message):
-	photo3 = open('https://2ch.hk/b/src/149422226/14902648817391.jpg', 'rb')
-	bot.sendPhoto(message.chat.id, photo3)	
+	bot.sendPhoto(message.chat.id, 'https://forums.drom.ru/attachment.php?attachmentid=4955722&d=1422632931')	
 	
     
 @server.route(SECRET, methods=['POST'])
