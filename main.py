@@ -1,7 +1,5 @@
 import os
-
 from flask import Flask, request
-
 import telebot
 from random import randint
 
@@ -10,14 +8,9 @@ URL = os.environ['PP_BOT_URL']
 REPO = os.environ['PP_BOT_REPO']
 SECRET = '/' + TOKEN
 
-url='http://voshod.tk/promo/img/fin0.png'
-f = open('out.jpg','wb')
-f.write(urllib.request.urlopen(url).read())
-f.close()
-
-
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
+################################################################################################################
 
 #приветствие, id
 @bot.message_handler(commands=['start', 'help'])
@@ -46,7 +39,11 @@ def sendPic(message):
 	bot.send_photo(chat_id=chat_id, photo='https://telegram.org/img/t_logo.png')		
 		
 #http://voshod.tk/promo/img/fin0.png
-    
+  
+	
+	
+	
+################################################################################################################	
 @server.route(SECRET, methods=['POST'])
 def get_message():
 	bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
