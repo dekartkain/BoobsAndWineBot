@@ -15,7 +15,7 @@ server = Flask(__name__)
 #приветствие, id
 @bot.message_handler(commands=['start', 'help'])
 def start(message):
-	bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name + '... Твой id: ' + str(message.from_user.id))
+	bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name + '... Твой id: ' + str(message.from_user.id) + )
 	bot.send_message(message.chat.id, 'скоро я смогу налить тебе винца и показать пару красивых сисек!')
   
 
@@ -32,18 +32,11 @@ def answer_by_pass(message):
 #тестим картинку
 @bot.message_handler(commands=['pic1'])
 def sendPic(message):
+	bot.getuserprofilephotos()
 	#bot.sendPhoto(message.chat.id, photo='http://voshod.tk/promo/img/fin0.png')
-	bot.sendPhoto(chat_id=message.chat.id, photo="http://voshod.tk/promo/img/fin0.png")
+
 		
-@bot.message_handler(commands=['pic2'])
-def sendPic(message):
-	bot.sendPhoto(message.chat.id, str('http://voshod.tk/promo/img/fin0.png'))
-	
-	
-@bot.message_handler(commands=['pic4'])
-def sendPic(message):
-	bot.sendPhoto(chat_id=message.chat.id, photo=str('http://voshod.tk/promo/img/fin0.png'))
-		
+
 #http://voshod.tk/promo/img/fin0.png
   
 	
