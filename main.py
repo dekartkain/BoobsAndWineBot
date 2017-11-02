@@ -28,24 +28,24 @@ def synboobs(message):
 	bot.send_message(message.chat.id, boobs)
 
 	
-#@bot.message_handler(content_types=['text'])
-#def srh(message):
-#	srhsyn = syn_boobs.syn_boobs_lib
-#	for i in range(len(srhsyn)):
-#		if message.text == srhsyn[i]:
-#			rand_val = randint(1, 76)
-#			boobs_img = 'http://boobsandwinebot.freedynamicdns.net/localhost/www/boobs/' + str(rand_val) + '.jpg'
-#			bot.send_photo(message.chat.id, boobs_img)
+@bot.message_handler(content_types=['text'])
+def srh(message):
+	srhsyn = syn_boobs.syn_boobs_lib
+	for i in range(len(srhsyn)):
+		if message.text == srhsyn[i]:
+			rand_val = randint(1, 76)
+			boobs_img = 'http://boobsandwinebot.freedynamicdns.net/localhost/www/boobs/' + str(rand_val) + '.jpg'
+			bot.send_photo(message.chat.id, boobs_img)
 		       
 		
 
 #ответ по слову
-@bot.message_handler(content_types=['text'])
-def answer_by_pass(message):
-	if message.text == 'сиськи' or 'Сиськи' or '1':
-		rand_val = randint(1, 76)
-		boobs_img = 'http://boobsandwinebot.freedynamicdns.net/localhost/www/boobs/' + str(rand_val) + '.jpg'
-		bot.send_photo(message.chat.id, boobs_img)
+#@bot.message_handler(content_types=['text'])
+#def answer_by_pass(message):
+#	if message.text == 'сиськи' or 'Сиськи' or '1':
+#		rand_val = randint(1, 76)
+#		boobs_img = 'http://boobsandwinebot.freedynamicdns.net/localhost/www/boobs/' + str(rand_val) + '.jpg'
+#		bot.send_photo(message.chat.id, boobs_img)
 
 
 		
