@@ -37,7 +37,7 @@ def start(message):
 @bot.message_handler(commands=['test2'])
 def start(message):
 #    bot.reply_to(message, 'Hi, ' + message.from_user.first_name)
-    bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name)
+    bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name + ' ...123' + message.from_user.id)
     bot.send_message(message.chat.id, 'привет..' + message.from_user.username + ' ...123')
 
 #повторяем сообщение
