@@ -19,15 +19,14 @@ server = Flask(__name__)
 #приветствие, id
 @bot.message_handler(commands=['start', 'help'])
 def start(message):
-#    bot.reply_to(message, 'Hi, ' + message.from_user.first_name)
     bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name + '... Твой id: ' + str(message.from_user.id))
   
 
 
 #ответ по слову
-@bot.message_handler(filters)
-def answer_by_pass(message):
-	bot.reply_to(message, "This is a message handler")
+#@bot.message_handler(filters)
+#def answer_by_pass(message):
+#	bot.reply_to(message, "This is a message handler")
     
 
 #повторяем сообщение
