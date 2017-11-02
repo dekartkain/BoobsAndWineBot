@@ -17,7 +17,12 @@ server = Flask(__name__)
 def start(message):
 	bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name + '... Твой id: ' + str(message.from_user.id))
 	bot.send_message(message.chat.id, 'скоро я смогу налить тебе винца и показать пару красивых сисек!')
-  
+
+#ответ по слову
+@bot.message_handler(content_types=['foto1'])
+def pic1(message):
+	bot.send_photo(message.chat.id, photo='http://voshod.tk/promo/img/fin0.png')
+	
 
 #ответ по слову
 @bot.message_handler(content_types=['text'])
@@ -27,19 +32,10 @@ def answer_by_pass(message):
 	elif message.text == 'вино':
 		bot.send_message(message.chat.id, "может быть, когда-нибудь")
 
-	
 #ответ по слову
-@bot.message_handler(content_types=['text'])
-def answer_by_pass2(message):
-	if message.text == 'pic':
-		bot.send_message(message.chat.id, "скоро тут будут сиськи")
-	
-#тестим картинку
-@bot.message_handler(commands=['pic'])
-def sendPic(message):
-	bot.send_message(message.chat.id, "может быть, когда-нибудь")
-	#bot.sendPhoto(message.chat.id, img1)
-	#img1 = bot.get_user_profile_photos(256587040)
+@bot.message_handler(content_types=['foto2'])
+def pic2(message):
+	bot.send_photo(message.chat.id, photo='http://voshod.tk/promo/img/fin0.png')
 
 		
 
