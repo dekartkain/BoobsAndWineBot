@@ -4,7 +4,7 @@ import telebot
 from random import randint
 import requests
 
-import syn_boobs
+import syn_boobsandwine
 
 TOKEN = os.environ['PP_BOT_TOKEN']
 URL = os.environ['PP_BOT_URL']
@@ -21,11 +21,17 @@ def start(message):
 	bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name + '... Твой id: ' + str(message.from_user.id))
 	bot.send_message(message.chat.id, 'Я бот сисек и вина!')
 
-#выводит лист синонимов
-@bot.message_handler(commands=['syn'])
+#выводит лист синонимов сисек
+@bot.message_handler(commands=['synboobs'])
 def synboobslst(message):
-	for i in range(len(syn_boobs.syn_boobs_lib)):
-		       bot.send_message(message.chat.id, syn_boobs.syn_boobs_lib[i])
+	for i in range(len(syn_boobsandwine.syn_boobs_lib)):
+		       bot.send_message(message.chat.id, syn_boobsandwine.syn_boobs_lib[i])
+
+#выводит лист синонимов вина
+@bot.message_handler(commands=['synwine'])
+def synwineslst(message):
+	for i in range(len(syn_boobsandwine.syn_wine_lib)):
+		       bot.send_message(message.chat.id, syn_boobsandwine.syn_wine_lib[i])
 
 			
 #парсер	сисек
@@ -34,8 +40,8 @@ def parser(message):
 	exmp = message.text
 	exmp_lower = exmp.lower() #сделать все символы строчными
 #	exmp_lower_nosp = exmp_lower.replace(' ','') #удалить проблеиы (' ')
-	synboobslist = syn_boobs.syn_boobs_lib #подтягиваем словарь синонимов сисек
-	synwinelist = syn_boobs.syn_wine_lib #подтягиваем словарь синонимов вина
+	synboobslist = syn_boobsandwine.syn_boobs_lib #подтягиваем словарь синонимов сисек
+	synwinelist = syn_boobsandwine.syn_wine_lib #подтягиваем словарь синонимов вина
 	for i in range(len(synboobslist)):
 		if exmp_lower.find(synboobslist[i]) != -1:
 			rand_val = randint(1, 76) #кол-во фоток
