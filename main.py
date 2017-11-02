@@ -17,8 +17,8 @@ server = Flask(__name__)
 #приветствие, id
 @bot.message_handler(commands=['start', 'help'])
 def start(message):
-    bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name + '... Твой id: ' + str(message.from_user.id))
-    bot.send_message(message.chat.id, 'скоро я смогу налить тебе винца и показать пару красивых сисек!')
+	bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name + '... Твой id: ' + str(message.from_user.id))
+	bot.send_message(message.chat.id, 'скоро я смогу налить тебе винца и показать пару красивых сисек!')
   
 
 #ответ по слову
@@ -33,18 +33,19 @@ def answer_by_pass(message):
 #тестим картинку
 @bot.message_handler(commands=['pic'])
 def sendPic(message):
-	bot.sendPhoto(message.chat.id, photo=open('https://2ch.hk/b/src/149422226/14902648817391.jpg', 'rb'))	
+	photo = open('https://2ch.hk/b/src/149422226/14902648817391.jpg', 'rb')
+	bot.sendPhoto(message.chat.id, photo)	
 	
     
 @server.route(SECRET, methods=['POST'])
 def get_message():
-    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
-    return "POST", 200
+	bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+	return "POST", 200
        
 @server.route("/")
 def web_hook():
-    bot.remove_webhook()
-    bot.set_webhook(url=URL+SECRET)
-    return "CONNECTED", 200
+	bot.remove_webhook()
+	bot.set_webhook(url=URL+SECRET)
+	return "CONNECTED", 200
 
 server.run(host="0.0.0.0", port=os.environ.get('PORT', 5000))  
