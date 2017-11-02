@@ -1,57 +1,54 @@
-import os
-from flask import Flask, request
-import telebot
-from random import randint
+import logging
+import telegram
+from telegram.error import NetworkError, Unauthorized
+from time import sleep
 
 TOKEN = os.environ['PP_BOT_TOKEN']
 URL = os.environ['PP_BOT_URL']
 REPO = os.environ['PP_BOT_REPO']
-SECRET = '/' + TOKEN
 
-bot = telebot.TeleBot(TOKEN)
-server = Flask(__name__)
 ################################################################################################################
+update_id = None
 
-#приветствие, id
-@bot.message_handler(commands=['start', 'help'])
-def start(message):
-	bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name + '... Твой id: ' + str(message.from_user.id) + )
-	bot.send_message(message.chat.id, 'скоро я смогу налить тебе винца и показать пару красивых сисек!')
-  
 
-#ответ по слову
-@bot.message_handler(content_types=['text'])
-def answer_by_pass(message):
-	if message.text == 'сиськи':
-		bot.send_message(message.chat.id, "скоро тут будут сиськи")
-	elif message.text == 'вино':
-		bot.send_message(message.chat.id, "может быть, когда-нибудь")
+def main():
+    """Run the bot."""
+    global update_id
+    # Telegram Bot Authorization Token
+    bot = telegram.Bot(TOKEN)
 
-		
-		
-#тестим картинку
-@bot.message_handler(commands=['pic1'])
-def sendPic(message):
-	bot.getuserprofilephotos()
-	#bot.sendPhoto(message.chat.id, photo='http://voshod.tk/promo/img/fin0.png')
+    # get the first pending update_id, this is so we can skip over it in case
+    # we get an "Unauthorized" exception.
+    try:
+        update_id = bot.get_updates()[0].update_id
+    except IndexError:
+        update_id = None
 
-		
+    logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-#http://voshod.tk/promo/img/fin0.png
-  
-	
-	
-	
-################################################################################################################	
-@server.route(SECRET, methods=['POST'])
-def get_message():
-	bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
-	return "POST", 200
-       
-@server.route("/")
-def web_hook():
-	bot.remove_webhook()
-	bot.set_webhook(url=URL+SECRET)
-	return "CONNECTED", 200
+    while True:
+        try:
+            echo(bot)
+        except NetworkError:
+            sleep(1)
+        except Unauthorized:
+            # The user has removed or blocked the bot.
+            update_id += 1
 
-server.run(host="0.0.0.0", port=os.environ.get('PORT', 5000))  
+
+def echo(bot):
+    """Echo the message the user sent."""
+    global update_id
+    # Request updates after the last update_id
+    for update in bot.get_updates(offset=update_id, timeout=10):
+        update_id = update.update_id + 1
+
+        if update.message:  # your bot can receive updates without messages
+            # Reply to the message
+            update.message.reply_text(update.message.text)
+
+
+if __name__ == '__main__':
+    main()
+
+################################################################################################################
