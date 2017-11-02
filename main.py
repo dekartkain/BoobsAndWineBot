@@ -31,10 +31,22 @@ def answer_by_pass(message):
 
 		
 #тестим картинку
-@bot.message_handler(commands=['pic'])
+@bot.message_handler(commands=['pic1'])
 def sendPic(message):
-	photo = open('https://2ch.hk/b/src/149422226/14902648817391.jpg', 'rb')
-	bot.sendPhoto(message.chat.id, photo)	
+	photo1 = open('2ch.hk/b/src/149422226/14902648817391.jpg', 'rb')
+	bot.sendPhoto(message.chat.id, photo1)	
+	
+#тестим картинку
+@bot.message_handler(commands=['pic2'])
+def sendPic(message):
+	photo2 = open('http://i1.perdos.me/files/video/2017/02/P7357/P7357_perdos.ru_18.jpg', 'rb')
+	bot.sendPhoto(message.chat.id, photo2)
+
+#тестим картинку
+@bot.message_handler(commands=['pic3'])
+def sendPic(message):
+	photo3 = open('https://2ch.hk/b/src/149422226/14902648817391.jpg', 'rb')
+	bot.sendPhoto(message.chat.id, photo3)	
 	
     
 @server.route(SECRET, methods=['POST'])
