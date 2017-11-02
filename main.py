@@ -27,6 +27,10 @@ def start(message):
 @bot.message_handler(commands=['test'])
 def test(message):
 	bot.send_message(message.chat.id, 'teeest')
+	
+@bot.message_handler(commands=['opop'])
+def opop(message):
+	bot.send_message(message.chat.id, 'graaaaa')
 
 #ответ по слову
 @bot.message_handler(content_types=['text'])
@@ -35,16 +39,9 @@ def answer_by_pass(message):
 		bot.send_message(message.chat.id, "скоро тут будут сиськи")
 	elif message.text == 'вино':
 		bot.send_message(message.chat.id, "может быть, когда-нибудь")
-		return False
+	elif message.text == 'сиськи!':
+		bot.send_photo(message.chat.id, photo='http://voshod.tk/promo/img/fin0.png')
 		
-@bot.message_handler(commands=['opop'])
-def opop(message):
-	bot.send_message(message.chat.id, 'graaaaa')
-
-#@bot.message_handler(content_types=['text'])
-#def roll(message):
-#	if message.text == 'сиськи!':
-#		bot.send_photo(message.chat.id, photo='http://voshod.tk/promo/img/fin0.png')
 
 
 		
