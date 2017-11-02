@@ -32,7 +32,7 @@ def answer_by_pass(message):
 #тестим картинку
 @bot.message_handler(commands=['pic'])
 def sendPic(message):
-	img1 = bot.getuserprofilephotos(256587040)
+	img1 = bot.get_user_profile_photos(256587040)
 	bot.send_message(message.chat.id, 'тадам' + str(img1))
 	#bot.sendPhoto(message.chat.id, img1)
 
