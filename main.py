@@ -34,7 +34,7 @@ def answer_by_pass(message):
 	elif message.text == 'вино':
 		bot.send_message(message.chat.id, "может быть, когда-нибудь")
 	else:
-		null
+		bot.send_message(message.chat.id, "null")
 
 @bot.message_handler(content_types=['text'])
 def roll(message):
