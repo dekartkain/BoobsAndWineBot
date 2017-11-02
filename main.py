@@ -41,6 +41,8 @@ def parser(message):
 			rand_val = randint(1, 76) #кол-во фоток
 			boobs_img = 'http://boobsandwinebot.freedynamicdns.net/localhost/www/boobs/' + str(rand_val) + '.jpg'
 			bot.send_photo(message.chat.id, boobs_img)
+			break
+		
 
 		
 #	if exmp.count('сиськи') > 0
