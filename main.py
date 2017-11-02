@@ -26,7 +26,7 @@ def start(message):
     
     
 #тест
-@bot.message_handler(commands=['start'])
+@bot.message_handler(commands=['test'])
 def start(message):
 #    bot.reply_to(message, 'Hi, ' + message.from_user.first_name)
     bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name)
