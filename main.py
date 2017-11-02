@@ -19,7 +19,7 @@ server = Flask(__name__)
 @bot.message_handler(commands=['start', 'help'])
 def start(message):
 	bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name + '... Твой id: ' + str(message.from_user.id))
-	bot.send_message(message.chat.id, 'скоро я смогу налить тебе винца и показать пару красивых сисек!')
+	bot.send_message(message.chat.id, 'Я бот сисек и вина!')
 
 #выводит лист синонимов
 @bot.message_handler(commands=['syn'])
@@ -27,9 +27,14 @@ def synboobslst(message):
 	for i in range(len(syn_boobs.syn_boobs_lib)):
 		       bot.send_message(message.chat.id, syn_boobs.syn_boobs_lib[i])
 
+#вино
+@bot.message_handler(content_types=['text'])
+def winemsg(message):
+	if message.text == 'вино' or 'Вино'or 'винцо'or 'Винцо':
+		bot.send_message(message.chat.id, 'Я больше по сиськам...')
 			
 			
-#парсер	
+#парсер	сисек
 @bot.message_handler(content_types=['text'])
 def parser(message):
 	exmp = message.text
