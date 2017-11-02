@@ -36,8 +36,11 @@ def sendPic(message):
 	bot.sendPhoto(chat_id=id_number, photo="http://voshod.tk/promo/img/fin0.png" )
 		
 @bot.message_handler(commands=['pic2'])
-def sendPic(message):		
-	bot.send_photo(message.chat.id, photo='https://telegram.org/img/t_logo.png')		
+def sendPic(message):
+	bot.sendPhoto(
+		chat_id=message.chat.id,
+		photo=open(str("http://voshod.tk/promo/img/fin0.png"), 'rb'),
+                )		
 		
 #http://voshod.tk/promo/img/fin0.png
   
