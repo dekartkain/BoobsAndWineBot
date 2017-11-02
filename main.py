@@ -31,10 +31,11 @@ def synboobs(message):
 @bot.message_handler(content_types=['text'])
 def srh(message):
 	srhsyn = syn_boobs.syn_boobs_lib
-#	srhsyn = ['qq', 'ww', 'ee', 'rr', 'tt']
 	for i in range(len(srhsyn)):
 		if message.text == srhsyn[i]:
-			bot.send_message(message.chat.id, 'yes')
+			rand_val = randint(1, 76)
+			boobs_img = 'http://boobsandwinebot.freedynamicdns.net/localhost/www/boobs/' + str(rand_val) + '.jpg'
+			bot.send_photo(message.chat.id, boobs_img, 'test')
 		       
 		
 
