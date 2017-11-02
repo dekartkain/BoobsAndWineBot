@@ -30,10 +30,10 @@ def answer_by_pass(message):
 		
 		
 #тестим картинку
-@bot.message_handler(commands=['pic1'])
+@bot.message_handler(commands=['pic'])
 def sendPic(message):
-	bot.getuserprofilephotos()
-	#bot.sendPhoto(message.chat.id, photo='http://voshod.tk/promo/img/fin0.png')
+	img1 = bot.getuserprofilephotos(message.from_user.id)
+	bot.sendPhoto(message.chat.id, img1)
 
 		
 
