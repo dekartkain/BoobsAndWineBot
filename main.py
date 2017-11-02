@@ -21,7 +21,7 @@ def start(message):
 	bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name + '... Твой id: ' + str(message.from_user.id))
 	bot.send_message(message.chat.id, 'скоро я смогу налить тебе винца и показать пару красивых сисек!')
 
-bot.message_handler(commands=['syn'])
+@bot.message_handler(commands=['syn'])
 def synboobs(message):
 #	rand_val = randint(1, 12)
 #	boobs = syn_boobs.syn_boobs_lib[rand_val]
