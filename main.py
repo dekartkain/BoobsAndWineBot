@@ -36,7 +36,7 @@ def parser(message):
 	exmp_lower = exmp.lower() #сделать все символы строчными
 	exmp_lower_nosp = exmp_lower.replace(' ','') #удалить проблеиы (' ')
 	#начинаем проверять строку по листу	
-	if exmp_lower_nosp.find('сиськи') != '-1':
+	if exmp_lower_nosp.find('сиськи') == '-1':
 		rand_val = randint(1, 76) #кол-во фоток
 		boobs_img = 'http://boobsandwinebot.freedynamicdns.net/localhost/www/boobs/' + str(rand_val) + '.jpg'
 		bot.send_photo(message.chat.id, boobs_img)
@@ -46,13 +46,7 @@ def parser(message):
 #		rand_val = randint(1, 76) #кол-во фоток
 #		boobs_img = 'http://boobsandwinebot.freedynamicdns.net/localhost/www/boobs/' + str(rand_val) + '.jpg'
 #		bot.send_photo(message.chat.id, boobs_img)
-		
-		
-	
-	bot.send_message(message.chat.id, exmp)
 
-			 
-			 
 			 
 #поиск слова в базе синонимов и вывод изображения (точное совпадение, одно слово)
 #@bot.message_handler(content_types=['text'])
