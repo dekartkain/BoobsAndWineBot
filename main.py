@@ -23,10 +23,10 @@ def start(message):
 
 @bot.message_handler(commands=['syn'])
 def synboobs(message):
-#	rand_val = randint(1, 12)
-#	boobs = syn_boobs.syn_boobs_lib[rand_val]
-#	bot.send_message(message.chat.id, boobs)
-	bot.send_message(message.chat.id, syn_boobs.syn_boobs_lib[5])
+	rand_val = randint(1, 12)
+	boobs = syn_boobs.syn_boobs_lib[rand_val]
+	bot.send_message(message.chat.id, boobs)
+
 		
 
 #ответ по слову
