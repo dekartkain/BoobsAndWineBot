@@ -1,7 +1,5 @@
-from telegram import (User, Message, Update, Chat, ChatMember, UserProfilePhotos, File,
-                      ReplyMarkup, TelegramObject, WebhookInfo, GameHighScore, StickerSet,
-                      PhotoSize, Audio, Document, Sticker, Video, Voice, VideoNote, Location,
-                      Venue, Contact)
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+import logging
 
 TOKEN = os.environ['PP_BOT_TOKEN']
 URL = os.environ['PP_BOT_URL']
