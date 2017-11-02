@@ -30,7 +30,7 @@ def answer_by_pass(message):
 	
 #ответ по слову
 @bot.message_handler(content_types=['text'])
-def answer_by_pass(message):
+def answer_by_pass2(message):
 	if message.text == 'pic':
 		bot.send_message(message.chat.id, "скоро тут будут сиськи")
 	
