@@ -32,6 +32,13 @@ def start(message):
     bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name)
     str1 = 'привет..' + message.from_user.username + ' ...123'
     bot.send_message(message.chat.id, str1)
+    
+#тест2
+@bot.message_handler(commands=['test2'])
+def start(message):
+#    bot.reply_to(message, 'Hi, ' + message.from_user.first_name)
+    bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name)
+    bot.send_message(message.chat.id, 'привет..' + message.from_user.username + ' ...123')
 
 #повторяем сообщение
 @bot.message_handler(content_types=["text"])
