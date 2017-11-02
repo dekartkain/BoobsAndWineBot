@@ -33,9 +33,9 @@ def answer_by_pass(message):
 #тестим картинку
 @bot.message_handler(commands=['pic'])
 def sendPic(message):
-	bot.sendPhoto(message.chat.id, '<a href="https://www.google.ru/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">&#8203;</a>', parse_mode="HTML")	
+	bot.sendPhoto(message.chat.id, "http://voshod.tk/promo/img/fin0.png")	
 		
-	
+#http://voshod.tk/promo/img/fin0.png
     
 @server.route(SECRET, methods=['POST'])
 def get_message():
