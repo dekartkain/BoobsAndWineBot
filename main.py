@@ -27,8 +27,13 @@ def answer_by_pass(message):
 	elif message.text == 'вино':
 		bot.send_message(message.chat.id, "может быть, когда-нибудь")
 
-		
-		
+	
+#ответ по слову
+@bot.message_handler(content_types=['text'])
+def answer_by_pass(message):
+	if message.text == 'pic':
+		bot.send_message(message.chat.id, "скоро тут будут сиськи")
+	
 #тестим картинку
 @bot.message_handler(commands=['pic'])
 def sendPic(message):
