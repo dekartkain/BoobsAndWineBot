@@ -30,10 +30,11 @@ def synboobs(message):
 	
 @bot.message_handler(content_types=['text'])
 def srhsyn(message):
-	syn_list = syn_boobs.syn_boobs_lib
-	for i in range(len(syn_list)):
-		if message.text == syn_list[i]:
+	for i in 12:
+		if message.text == syn_boobs.syn_boobs_lib[i]:
 			bot.send_message(message.chat.id, 'yes')
+		else:
+			bot.send_message(message.chat.id, 'no')
 		       
 		
 
