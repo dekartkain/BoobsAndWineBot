@@ -24,10 +24,20 @@ def start(message):
   
 
 
+@bot.message_handler(content_types=['text'])
+def handle_text(message):
+	city = pywapi.get_location_ids(message.text)
+	for i in city:
+		cityCode = i
+		weather_com_result = pywapi.get_weather_from_weather_com(cityCode)
+		weatherReport = "It is " + weather_com_result['current_conditions']['text'].lower() + " and " + weather_com_result['current_conditions']['temperature'] + "°C now in " + message.text + "." + "\n" + "Feels like " + weather_com_result['current_conditions']['feels_like'] + "°C. \n" + "Last update - " + weather_com_result['current_conditions']['last_updated']
+		bot.send_message(message.chat.id, weatherReport)
+
+
 #ответ по слову
-@bot.message_handler(content_types=['123', 'привет', 'hi'])
-def answer_by_pass(message):
-	bot.reply_to(message, "good")
+#@bot.message_handler(content_types=['123', 'привет', 'hi'])
+#def answer_by_pass(message):
+#	bot.reply_to(message, "good")
     
 
 #повторяем сообщение
