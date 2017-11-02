@@ -22,8 +22,8 @@ def start(message):
 	bot.send_message(message.chat.id, 'скоро я смогу налить тебе винца и показать пару красивых сисек!')
 
 bot.message_handler(content_types=['text'])
-def test(message):
-	if message.text == '2':
+def synboobs(message):
+	if message.text == 'syn':
 		rand_val = randint(1, 12)
 		boobs = syn_boobs.syn_boobs_lib[rand_val]
 		bot.send_message(message.chat.id, boobs)
