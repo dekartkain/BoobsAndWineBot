@@ -37,10 +37,7 @@ def sendPic(message):
 		
 @bot.message_handler(commands=['pic2'])
 def sendPic(message):
-	bot.sendPhoto(
-		chat_id=message.chat.id,
-		photo=open(str("http://voshod.tk/promo/img/fin0.png"), 'rb'),
-                )		
+	bot.sendPhoto(message.chat.id, str('http://voshod.tk/promo/img/fin0.png')		
 		
 #http://voshod.tk/promo/img/fin0.png
   
