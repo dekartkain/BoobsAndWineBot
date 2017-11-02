@@ -35,8 +35,6 @@ def srh(message):
 	for i in range(len(srhsyn)):
 		if message.text == srhsyn[i]:
 			bot.send_message(message.chat.id, 'yes')
-		else:
-			bot.send_message(message.chat.id, 'no')
 		       
 		
 
