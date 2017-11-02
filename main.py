@@ -33,7 +33,7 @@ def answer_by_pass(message):
 #тестим картинку
 @bot.message_handler(commands=['pic'])
 def sendPic(message):
-	bot.sendPhoto(message.chat.id, photo=open('https://www.google.ru/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png', 'rb'))	
+	bot.sendPhoto(message.chat.id, photo=open('https://2ch.hk/b/src/149422226/14902648817391.jpg', 'rb'))	
 	
     
 @server.route(SECRET, methods=['POST'])
