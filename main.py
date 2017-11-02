@@ -24,7 +24,8 @@ def start(message):
 #весь словарь синонимов
 @bot.message_handler(commands=['syn'])
 def synboobs(message):
-	for i in range(len(syn_boobs.syn_boobs_lib):
+	synboobslist = syn_boobs.syn_boobs_lib
+	for i in range(len(synboobslist):
 		       bot.send_message(message.chat.id, syn_boobs.syn_boobs_lib[i])
 
 #парсер	
@@ -35,7 +36,8 @@ def synboobs(message):
 #поиск слова в базе синонимов и вывод изображения (точное совпадение, одно слово)
 @bot.message_handler(content_types=['text'])
 def srh(message):
-	for i in range(len(syn_boobs.syn_boobs_lib)):
+	synboobslist = syn_boobs.syn_boobs_lib
+	for i in range(len(synboobslist)):
 		if message.text == srhsyn[i]:
 			rand_val = randint(1, 76) #кол-во фоток
 			boobs_img = 'http://boobsandwinebot.freedynamicdns.net/localhost/www/boobs/' + str(rand_val) + '.jpg'
@@ -43,7 +45,7 @@ def srh(message):
 		       
 		
 
-#ответ по слову
+#ответ по слову из кода
 #@bot.message_handler(content_types=['text'])
 #def answer_by_pass(message):
 #	if message.text == 'сиськи' or 'Сиськи' or '1':
@@ -52,12 +54,6 @@ def srh(message):
 #		bot.send_photo(message.chat.id, boobs_img)
 
 
-		
-
-
-		
-
-#http://voshod.tk/promo/img/fin0.png
   
 	
 	
