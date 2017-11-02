@@ -24,8 +24,8 @@ def start(message):
 #весь словарь синонимов
 @bot.message_handler(commands=['syn'])
 def synboobs(message):
-	synboobslist = syn_boobs.syn_boobs_lib
-	for i in range(len(synboobslist):
+#	synboobslist = syn_boobs.syn_boobs_lib
+	for i in range(len(syn_boobs.syn_boobs_lib)):
 		       bot.send_message(message.chat.id, syn_boobs.syn_boobs_lib[i])
 
 #парсер	
