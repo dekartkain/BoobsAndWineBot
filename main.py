@@ -27,7 +27,7 @@ def start(message):
 #ответ по слову
 @bot.message_handler(content_types=['text'])
 def answer_by_pass(message):
-	if message.text == 'сиськи':
+	if message.text == 'сиськи' or 'Сиськи' or '1':
 		rand_val = randint(1, 76)
 		boobs_img = 'http://boobsandwinebot.freedynamicdns.net/boobs/' + str(rand_val) + '.jpg'
 		bot.send_photo(message.chat.id, boobs_img)
