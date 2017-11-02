@@ -20,37 +20,20 @@ server = Flask(__name__)
 @bot.message_handler(commands=['start'])
 def start(message):
 #    bot.reply_to(message, 'Hi, ' + message.from_user.first_name)
-    bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name)
-    bot.send_message(message.chat.id, message.from_user.id)
-    bot.send_message(message.chat.id, message.from_user.username)
+    bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name + '... Твой id: ' + str(message.from_user.id))
   
 
 
-#повторяем сообщение
-@bot.message_handler(content_types=["привет"])
-def repeat_all_messages(message):
-    bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name + '... Твой id: ' + str(message.from_user.id))
-    bot.send_message(message.chat.id, message.text)
+#ответ по слову
+@bot.message_handler(func=lambda message: message.document.mime_type == 'text/plain', content_types=['привет'])
+def answer_to_hi(message):
+    bot.send_message(message.chat.id, "заебись!!")
     
-#тест
-@bot.message_handler(commands=['test'])
-def start(message):
-#    bot.reply_to(message, 'Hi, ' + message.from_user.first_name)
-    bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name)
-    str1 = 'привет..' + message.from_user.username + ' ...123'
-    bot.send_message(message.chat.id, str1)
-    
-#тест2
-@bot.message_handler(commands=['test2'])
-def start(message):
-#    bot.reply_to(message, 'Hi, ' + message.from_user.first_name)
-    bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name + ' ...123' + str(message.from_user.id))
-    bot.send_message(message.chat.id, 'привет..' + message.from_user.username + ' ...123')
 
 #повторяем сообщение
-@bot.message_handler(content_types=["text"])
-def repeat_all_messages(message):
-    bot.send_message(message.chat.id, message.text)
+#@bot.message_handler(content_types=["text"])
+#def repeat_all_messages(message):
+#    bot.send_message(message.chat.id, message.text)
 
     
     
