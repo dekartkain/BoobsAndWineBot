@@ -11,6 +11,11 @@ URL = os.environ['PP_BOT_URL']
 REPO = os.environ['PP_BOT_REPO']
 SECRET = '/' + TOKEN
 
+url='http://voshod.tk/promo/img/fin0.png'
+f = open('out.jpg','wb')
+f.write(urllib.request.urlopen(url).read())
+f.close()
+
 
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
@@ -31,10 +36,15 @@ def answer_by_pass(message):
 		bot.send_message(message.chat.id, "может быть, когда-нибудь")
 
 		
+		
 #тестим картинку
 @bot.message_handler(commands=['pic'])
 def sendPic(message):
-	bot.sendPhoto(message.chat.id, "http://voshod.tk/promo/img/fin0.png")	
+	bot.send_chat_action(message.chat.id, 'upload_photo')
+	img = open('out.jpg', 'rb')
+	bot.send_photo(message.chat.id, img, reply_to_message_id=message.message_id)
+	img.close()
+#	bot.sendPhoto(message.chat.id, "http://voshod.tk/promo/img/fin0.png")	
 		
 #http://voshod.tk/promo/img/fin0.png
     
