@@ -3,6 +3,7 @@ import os
 from flask import Flask, request
 
 import telebot
+import urllib
 from random import randint
 
 TOKEN = os.environ['PP_BOT_TOKEN']
