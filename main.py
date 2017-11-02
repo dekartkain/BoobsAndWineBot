@@ -20,6 +20,7 @@ server = Flask(__name__)
 @bot.message_handler(commands=['start', 'help'])
 def start(message):
     bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name + '... Твой id: ' + str(message.from_user.id))
+    bot.send_message(message.chat.id, 'скоро я смогу налить тебе винца и показать пару красивых сисек!')
   
 
 
