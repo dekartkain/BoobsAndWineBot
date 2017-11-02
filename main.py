@@ -26,10 +26,11 @@ def start(message):
 #ответ по слову
 @bot.message_handler(content_types=['text'])
 def answer_by_pass(message):
-	if message.text == '123':
-		bot.reply_to(message, "good")
-	else:
-		bot.reply_to(message, "bad")
+	if message.text == 'сиськи':
+		bot.send_message(message, "скоро тут будут сиськи")
+	if message.text == 'вино':
+		bot.send_message(message, "может быть, когда-нибудь")
+
     
 
 #повторяем сообщение
