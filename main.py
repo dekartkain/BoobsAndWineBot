@@ -3,7 +3,6 @@ import os
 from flask import Flask, request
 
 import telebot
-import urllib
 from random import randint
 
 TOKEN = os.environ['PP_BOT_TOKEN']
@@ -38,13 +37,13 @@ def answer_by_pass(message):
 		
 		
 #тестим картинку
-@bot.message_handler(commands=['pic'])
+@bot.message_handler(commands=['pic1'])
 def sendPic(message):
-	bot.send_chat_action(message.chat.id, 'upload_photo')
-	img = open('out.jpg', 'rb')
-	bot.send_photo(message.chat.id, img, reply_to_message_id=message.message_id)
-	img.close()
-#	bot.sendPhoto(message.chat.id, "http://voshod.tk/promo/img/fin0.png")	
+	bot.sendPhoto(message.chat.id, photo='http://voshod.tk/promo/img/fin0.png')	
+		
+@bot.message_handler(commands=['pic2'])
+def sendPic(message):		
+	bot.send_photo(chat_id=chat_id, photo='https://telegram.org/img/t_logo.png')		
 		
 #http://voshod.tk/promo/img/fin0.png
     
