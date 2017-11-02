@@ -40,7 +40,7 @@ def answer_by_pass(message):
 	elif message.text == 'вино':
 		bot.send_message(message.chat.id, "может быть, когда-нибудь")
 	elif message.text == 'сиськи!':
-		bot.send_photo(message.chat.id, photo='ftp://109.195.87.20/1.jpg')
+		bot.send_photo(message.chat.id, photo='ftp://109.195.87.20:8083/1.jpg')
 		
 
 
