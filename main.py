@@ -18,9 +18,11 @@ def start(message):
 	bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name + '... Твой id: ' + str(message.from_user.id))
 	bot.send_message(message.chat.id, 'скоро я смогу налить тебе винца и показать пару красивых сисек!')
 
-@bot.message_handler(commands=['roll'])
+@bot.message_handler(content_types=['text'])
 def roll(message):
-    bot.send_photo(message.chat.id, photo='http://voshod.tk/promo/img/fin0.png')
+	if message.text == 'сиськи!':
+		bot.send_photo(message.chat.id, photo='http://voshod.tk/promo/img/fin0.png')
+    
 	
 
 #ответ по слову
