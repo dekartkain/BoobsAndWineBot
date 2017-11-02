@@ -28,12 +28,8 @@ def start(message):
 @bot.message_handler(content_types=['text'])
 def answer_by_pass(message):
 	if message.text == 'сиськи':
-		bot.send_message(message.chat.id, "скоро тут будут сиськи")
-	elif message.text == 'вино':
-		bot.send_message(message.chat.id, "может быть, когда-нибудь")
-	elif message.text == 'http':
-		rand_img = = randint(1, 3)
-		boobs_img = 'http://boobsandwinebot.freedynamicdns.net/' +rand_img + '.jpg'
+		rand_val = randint(1, 3)
+		boobs_img = 'http://boobsandwinebot.freedynamicdns.net/' + rand_val + '.jpg'
 		bot.send_photo(message.chat.id, boobs_img)
 
 
