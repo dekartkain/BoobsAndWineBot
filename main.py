@@ -30,7 +30,7 @@ def synboobs(message):
 	
 @bot.message_handler(commands=['srh'])
 def srhsyn(message):
-	if message.text in syn_boobs.syn_boobs_lib
+	if message.text == syn_boobs.syn_boobs_lib
 	bot.send_message(message.chat.id, 'yes')
 		
 
