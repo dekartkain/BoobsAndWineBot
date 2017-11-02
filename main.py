@@ -21,19 +21,23 @@ def start(message):
 	bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name + '... Твой id: ' + str(message.from_user.id))
 	bot.send_message(message.chat.id, 'скоро я смогу налить тебе винца и показать пару красивых сисек!')
 
+#весь словарь синонимов
 @bot.message_handler(commands=['syn'])
 def synboobs(message):
-	rand_val = randint(1, 12)
-	boobs = syn_boobs.syn_boobs_lib[rand_val]
-	bot.send_message(message.chat.id, boobs)
+	for i in range(len(syn_boobs.syn_boobs_lib):
+		       bot.send_message(message.chat.id, syn_boobs.syn_boobs_lib[i])
 
-	
+#парсер	
+#@bot.message_handler(content_types=['text'])
+#def parser(message):
+#	bot.send_message(message.chat.id,
+
+#поиск слова в базе синонимов и вывод изображения (точное совпадение, одно слово)
 @bot.message_handler(content_types=['text'])
 def srh(message):
-	srhsyn = syn_boobs.syn_boobs_lib
-	for i in range(len(srhsyn)):
+	for i in range(len(syn_boobs.syn_boobs_lib)):
 		if message.text == srhsyn[i]:
-			rand_val = randint(1, 76)
+			rand_val = randint(1, 76) #кол-во фоток
 			boobs_img = 'http://boobsandwinebot.freedynamicdns.net/localhost/www/boobs/' + str(rand_val) + '.jpg'
 			bot.send_photo(message.chat.id, boobs_img)
 		       
