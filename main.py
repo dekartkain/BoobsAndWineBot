@@ -32,7 +32,8 @@ def answer_by_pass(message):
 #тестим картинку
 @bot.message_handler(commands=['pic1'])
 def sendPic(message):
-	bot.sendPhoto(message.chat.id, photo='http://voshod.tk/promo/img/fin0.png')	
+	#bot.sendPhoto(message.chat.id, photo='http://voshod.tk/promo/img/fin0.png')
+	bot.sendPhoto(chat_id=id_number, photo="http://voshod.tk/promo/img/fin0.png" )
 		
 @bot.message_handler(commands=['pic2'])
 def sendPic(message):		
