@@ -23,7 +23,14 @@ def start(message):
     bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name)
     bot.send_message(message.chat.id, message.from_user.id)
     bot.send_message(message.chat.id, message.from_user.username)
-    
+  
+
+
+#повторяем сообщение
+@bot.message_handler(content_types=["привет"])
+def repeat_all_messages(message):
+    bot.send_message(message.chat.id, 'Привет, ' + message.from_user.first_name + '... Твой id: ' + str(message.from_user.id))
+    bot.send_message(message.chat.id, message.text)
     
 #тест
 @bot.message_handler(commands=['test'])
