@@ -24,7 +24,6 @@ def start(message):
 #весь словарь синонимов
 @bot.message_handler(commands=['syn'])
 def synboobs(message):
-#	synboobslist = syn_boobs.syn_boobs_lib
 	for i in range(len(syn_boobs.syn_boobs_lib)):
 		       bot.send_message(message.chat.id, syn_boobs.syn_boobs_lib[i])
 
@@ -38,7 +37,7 @@ def synboobs(message):
 def srh(message):
 	synboobslist = syn_boobs.syn_boobs_lib
 	for i in range(len(synboobslist)):
-		if message.text == srhsyn[i]:
+		if message.text == synboobslist[i]:
 			rand_val = randint(1, 76) #кол-во фоток
 			boobs_img = 'http://boobsandwinebot.freedynamicdns.net/localhost/www/boobs/' + str(rand_val) + '.jpg'
 			bot.send_photo(message.chat.id, boobs_img)
