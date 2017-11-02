@@ -33,6 +33,22 @@ def synboobslst(message):
 @bot.message_handler(content_types=['text'])
 def parser(message):
 	exmp = message.text
+	exmp_lower = exmp.lower() #сделать все символы строчными
+	exmp_lower_nosp = exmp_lower.replace(' ','') #удалить проблеиы (' ')
+	#начинаем проверять строку по листу	
+	if exmp_lower_nosp.find('сиськи') != '-1':
+		rand_val = randint(1, 76) #кол-во фоток
+		boobs_img = 'http://boobsandwinebot.freedynamicdns.net/localhost/www/boobs/' + str(rand_val) + '.jpg'
+		bot.send_photo(message.chat.id, boobs_img)
+
+		
+#	if exmp.count('сиськи') > 0
+#		rand_val = randint(1, 76) #кол-во фоток
+#		boobs_img = 'http://boobsandwinebot.freedynamicdns.net/localhost/www/boobs/' + str(rand_val) + '.jpg'
+#		bot.send_photo(message.chat.id, boobs_img)
+		
+		
+	
 	bot.send_message(message.chat.id, exmp)
 
 			 
