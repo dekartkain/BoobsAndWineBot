@@ -21,8 +21,6 @@ def start(message):
     bot.send_message(message.chat.id, 'скоро я смогу налить тебе винца и показать пару красивых сисек!')
   
 
-
-
 #ответ по слову
 @bot.message_handler(content_types=['text'])
 def answer_by_pass(message):
@@ -31,16 +29,12 @@ def answer_by_pass(message):
 	elif message.text == 'вино':
 		bot.send_message(message.chat.id, "может быть, когда-нибудь")
 
-
-    
-
-#повторяем сообщение
-#@bot.message_handler(content_types=["text"])
-#def repeat_all_messages(message):
-#    bot.send_message(message.chat.id, message.text)
-
-    
-    
+		
+#тестим картинку
+@bot.message_handler(commands=['pic'])
+def sendPic(message):
+	bot.sendPhoto(message.chat.id, 'https://www.google.ru/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png')	
+	
     
 @server.route(SECRET, methods=['POST'])
 def get_message():
