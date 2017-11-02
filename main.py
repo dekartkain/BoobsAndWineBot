@@ -30,7 +30,7 @@ def synboobslst(message):
 #вино
 @bot.message_handler(content_types=['text'])
 def winemsg(message):
-	if message.text == 'вино' or 'Вино'or 'винцо'or 'Винцо':
+	if message.text == 'вино' or 'Вино' or 'винцо' or 'Винцо' or 'винишко' or 'Винишко':
 		bot.send_message(message.chat.id, 'Я больше по сиськам...')
 	else:
 		exmp = message.text
