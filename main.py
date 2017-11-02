@@ -28,10 +28,9 @@ def start(message):
 def answer_by_pass(message):
 	if message.text == 'сиськи':
 		bot.send_message(message, "скоро тут будут сиськи")
-	else:
-		if message.text == 'вино':
-			bot.send_message(message, "может быть, когда-нибудь")
-		else:
+	elif message.text == 'вино':
+		bot.send_message(message, "может быть, когда-нибудь")
+
 
     
 
