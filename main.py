@@ -32,21 +32,30 @@ def synboobslst(message):
 def winemsg(message):
 	if message.text == 'вино' or 'Вино'or 'винцо'or 'Винцо':
 		bot.send_message(message.chat.id, 'Я больше по сиськам...')
-			
+	else
+		exmp = message.text
+		exmp_lower = exmp.lower() #сделать все символы строчными
+		synboobslist = syn_boobs.syn_boobs_lib #подтягиваем словарь синонимов
+		for i in range(len(synboobslist)):
+			if exmp_lower.find(synboobslist[i]) != -1:
+				rand_val = randint(1, 76) #кол-во фоток
+				boobs_img = 'http://boobsandwinebot.freedynamicdns.net/localhost/www/boobs/' + str(rand_val) + '.jpg'
+				bot.send_photo(message.chat.id, boobs_img)
+				break
 			
 #парсер	сисек
-@bot.message_handler(content_types=['text'])
-def parser(message):
-	exmp = message.text
-	exmp_lower = exmp.lower() #сделать все символы строчными
+#@bot.message_handler(content_types=['text'])
+#def parser(message):
+#	exmp = message.text
+#	exmp_lower = exmp.lower() #сделать все символы строчными
 #	exmp_lower_nosp = exmp_lower.replace(' ','') #удалить проблеиы (' ')
-	synboobslist = syn_boobs.syn_boobs_lib #подтягиваем словарь синонимов
-	for i in range(len(synboobslist)):
-		if exmp_lower.find(synboobslist[i]) != -1:
-			rand_val = randint(1, 76) #кол-во фоток
-			boobs_img = 'http://boobsandwinebot.freedynamicdns.net/localhost/www/boobs/' + str(rand_val) + '.jpg'
-			bot.send_photo(message.chat.id, boobs_img)
-			break
+#	synboobslist = syn_boobs.syn_boobs_lib #подтягиваем словарь синонимов
+#	for i in range(len(synboobslist)):
+#		if exmp_lower.find(synboobslist[i]) != -1:
+#			rand_val = randint(1, 76) #кол-во фоток
+#			boobs_img = 'http://boobsandwinebot.freedynamicdns.net/localhost/www/boobs/' + str(rand_val) + '.jpg'
+#			bot.send_photo(message.chat.id, boobs_img)
+#			break
 		
 
 		
