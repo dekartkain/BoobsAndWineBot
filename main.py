@@ -41,8 +41,7 @@ def answer_by_pass(message):
 		bot.send_message(message.chat.id, "может быть, когда-нибудь")
 	elif message.text == 'сиськи!':
 		#bot.send_photo(message.chat.id, photo='ftp://109.195.87.20:8083/1.jpg')
-		ipadres = 'http://109.195.87.20/1.jpg'
-		bot.send_photo(message.chat.id, ipadres)
+		bot.send_photo(message.chat.id, photo='http://89.208.156.201/thumb/420x420/img/2017/11/nastya/20171102-np-fix.jpg')
 	elif message.text == 'вино!':
 		bot.send_photo(message.chat.id, photo='http://erotica-vip.ru/uploads/posts/2016-04/1460386804_modeley-7.jpg')
 		
