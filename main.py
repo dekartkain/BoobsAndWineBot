@@ -27,9 +27,9 @@ def start(message):
 @bot.message_handler(content_types=['text'])
 def answer_by_pass(message):
 	if message.text == 'сиськи':
-		bot.send_message(message, "скоро тут будут сиськи")
+		bot.send_message(message.chat.id, "скоро тут будут сиськи")
 	elif message.text == 'вино':
-		bot.send_message(message, "может быть, когда-нибудь")
+		bot.send_message(message.chat.id, "может быть, когда-нибудь")
 
 
     
