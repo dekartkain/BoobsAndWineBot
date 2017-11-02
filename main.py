@@ -1,5 +1,5 @@
 import logging
-import telegram
+import python-telegram-bot
 from telegram.error import NetworkError, Unauthorized
 from time import sleep
 
