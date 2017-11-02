@@ -32,10 +32,10 @@ def answer_by_pass(message):
 	elif message.text == 'вино':
 		bot.send_message(message.chat.id, "может быть, когда-нибудь")
 	elif message.text == 'http':
-		#bot.send_photo(message.chat.id, photo='ftp://109.195.87.20:8083/1.jpg')
-		bot.send_photo(message.chat.id, photo='http://boobsandwinebot.freedynamicdns.net:80/1.jpg')
-	elif message.text == 'ftp':
-		bot.send_photo(message.chat.id, photo='http://109.195.87.20/1.jpg')
+		rand_img = = randint(1, 3)
+		boobs_img = 'http://boobsandwinebot.freedynamicdns.net/' +rand_img + '.jpg'
+		bot.send_photo(message.chat.id, boobs_img)
+
 
 		
 
