@@ -45,6 +45,7 @@ def parser(message):
 	for i in range(len(synboobslist)):
 		if exmp_lower.find(synboobslist[i]) != -1:
 			rand_val = randint(1, 76) #кол-во фоток
+			bot.send_message(rand_val)
 			boobs_img = 'http://boobsandwinebot.freedynamicdns.net/localhost/www/boobs/' + str(rand_val) + '.jpg'
 			bot.send_photo(message.chat.id, boobs_img)
 			break
