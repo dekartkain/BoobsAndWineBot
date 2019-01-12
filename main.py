@@ -39,24 +39,44 @@ def synwineslst(message):
 
 			
 #парсер	сисек
-#@bot.message_handler(content_types=['text'])
-#def parser(message):
-#	exmp = message.text
-#	exmp_lower = exmp.lower() #сделать все символы строчными
-##	exmp_lower_nosp = exmp_lower.replace(' ','') #удалить проблеиы (' ')
-#	synboobslist = syn_boobsandwine.syn_boobs_lib #подтягиваем словарь синонимов сисек
-#	synwinelist = syn_boobsandwine.syn_wine_lib #подтягиваем словарь синонимов вина
-#	for i in range(len(synboobslist)):
-#		if exmp_lower.find(synboobslist[i]) != -1:
+@bot.message_handler(content_types=['text'])
+def parser(message):
+	exmp = message.text
+	exmp_lower = exmp.lower() #сделать все символы строчными
+#	exmp_lower_nosp = exmp_lower.replace(' ','') #удалить проблеиы (' ')
+	synboobslist = syn_boobsandwine.syn_boobs_lib #подтягиваем словарь синонимов сисек
+	synwinelist = syn_boobsandwine.syn_wine_lib #подтягиваем словарь синонимов вина
+	for i in range(len(synboobslist)):
+		if exmp_lower.find(synboobslist[i]) != -1:
+			msg = synboobslist[i]
 #			rand_val = randint(1, 76) #кол-во фоток
 #			bot.send_message(message.chat.id, str(rand_val))
 #			boobs_img = 'http://boobsandwinebot.freedynamicdns.net/localhost/www/boobs/' + str(rand_val) + '.jpg'
 #			bot.send_photo(message.chat.id, boobs_img)
-#			break
-#	for i in range(len(synwinelist)):
-#		if exmp_lower.find(synwinelist[i]) != -1:
-#			bot.send_message(message.chat.id, 'Я больше по сиськам..')
-#			break
+			buildargs = {
+				'serviceName': 'customsearch',                        
+				'version': 'v1',                                 
+				'developerKey': SEARCHAPI        
+			}
+
+			# Define cseargs for search
+			cseargs = {
+				'searchType': 'image',
+				'q': msg,
+				'cx': SEACHID
+			}
+			results = search_google.api.results(buildargs, cseargs)
+			if len(results.links) != 0:
+#				bot.send_message(message.chat.id, results.links[randint(0, len(results.links) - 1)]) 
+				bot.send_photo(message.chat.id, results.links[randint(0, len(results.links) - 1)])
+			else:
+				bot.send_message(message.chat.id, "ERROR")
+				break
+	for i in range(len(synwinelist)):
+		if exmp_lower.find(synwinelist[i]) != -1:
+			bot.send_message(message.chat.id, 'Я больше по сиськам..')
+			break
+
 #GoogleImageSearch	
 @bot.message_handler(commands=['img'])
 def imageSearch(message):  
