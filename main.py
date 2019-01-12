@@ -60,27 +60,26 @@ def synwineslst(message):
 #GoogleImageSearch	
 @bot.message_handler(commands=['img'])
 def imageSearch(message):  
-    msg = message.text.replace('/img','').lstrip(' ')
-    if msg != " ":
-        buildargs = {
-            'serviceName': 'customsearch',                        
-            'version': 'v1',                                 
-            'developerKey': SEARCHAPI        
-        }
-
-        # Define cseargs for search
-        cseargs = {
-            'searchType': 'image',
-            'q': msg,
-            'cx': SEACHID
-        }
-
-        results = search_google.api.results(buildargs, cseargs)
-        if len(results.links) != 0:
-            bot.send_message(message.chat.id, results.links[randint(0, len(results.links) - 1)]) 
-	    bot.send_photo(message.chat.id, results.links[randint(0, len(results.links) - 1)])
-        else:
-            bot.send_message(message.chat.id, "ERROR") 
+	msg = message.text.replace('/img','').lstrip(' ')
+	if msg != " ":
+		buildargs = {
+			'serviceName': 'customsearch',                        
+			'version': 'v1',                                 
+			'developerKey': SEARCHAPI        
+		}
+		
+		# Define cseargs for search
+		cseargs = {
+			'searchType': 'image',
+			'q': msg,
+			'cx': SEACHID
+		}
+		results = search_google.api.results(buildargs, cseargs)
+		if len(results.links) != 0:
+			bot.send_message(message.chat.id, results.links[randint(0, len(results.links) - 1)]) 
+			bot.send_photo(message.chat.id, results.links[randint(0, len(results.links) - 1)])
+		else:
+			bot.send_message(message.chat.id, "ERROR") 
 		
 #	if exmp.count('сиськи') > 0
 #		rand_val = randint(1, 76) #кол-во фоток
