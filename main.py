@@ -63,7 +63,7 @@ def imageSearch(message):
     msg = message.text.replace('/img','').lstrip(' ')
     if msg != " ":
         buildargs = {
-            'serviceName': 'Google',                        
+            'serviceName': 'customsearch',                        
             'version': 'v1',                                 
             'developerKey': SEARCHAPI        
         }
