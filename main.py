@@ -12,6 +12,8 @@ TOKEN = os.environ['PP_BOT_TOKEN']
 URL = os.environ['PP_BOT_URL']
 REPO = os.environ['PP_BOT_REPO']
 SECRET = '/' + TOKEN
+SEACHID = os.environ['PP_BOT_SEARCH_ID']
+SEARCHAPI = os.environ['PP_BOT_SEARCH_API_KEY']
 
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
