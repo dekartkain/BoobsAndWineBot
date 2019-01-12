@@ -76,7 +76,7 @@ def imageSearch(message):
 		}
 		results = search_google.api.results(buildargs, cseargs)
 		if len(results.links) != 0:
-			bot.send_message(message.chat.id, results.links[randint(0, len(results.links) - 1)]) 
+#			bot.send_message(message.chat.id, results.links[randint(0, len(results.links) - 1)]) 
 			bot.send_photo(message.chat.id, results.links[randint(0, len(results.links) - 1)])
 		else:
 			bot.send_message(message.chat.id, "ERROR") 
