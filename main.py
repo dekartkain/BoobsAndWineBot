@@ -2,6 +2,7 @@ import os
 from flask import Flask, request
 import telebot
 from random import randint
+import search_google.api
 import requests
 
 import syn_boobsandwine
@@ -53,8 +54,29 @@ def parser(message):
 		if exmp_lower.find(synwinelist[i]) != -1:
 			bot.send_message(message.chat.id, 'Я больше по сиськам..')
 			break
-		
+#GoogleImageSearch	
+@bot.message_handler(commands=['img'])
+def imageSearch(message):  
+    msg = message.text.replace('/img','').lstrip(' ')
+    if msg != " ":
+        buildargs = {
+            'serviceName': 'customsearch',                        
+            'version': 'v1',                                 
+            'developerKey': SEARCHAPI        
+        }
 
+        # Define cseargs for search
+        cseargs = {
+            'searchType': 'image',
+            'q': msg,
+            'cx': SEACHID
+        }
+
+        results = search_google.api.results(buildargs, cseargs)
+        if len(results.links) != 0:
+            bot.send_message(message.chat.id, results.links[randint(0, len(results.links) - 1)]) 
+        else:
+            bot.send_message(message.chat.id, "ERROR") 
 		
 #	if exmp.count('сиськи') > 0
 #		rand_val = randint(1, 76) #кол-во фоток
